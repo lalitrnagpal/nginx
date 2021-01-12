@@ -26,7 +26,7 @@ nginx -V
 
 ps aux | grep nginx
 
-sudo nginx
+# sudo nginx
 
-ps aux | grep nginx
+# ps aux | grep nginx
 
