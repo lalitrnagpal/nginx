@@ -12,25 +12,21 @@ cd nginx-1.19.6/
 
 sudo apt-get install build-essential -y
 
-sudo apt-get install libpcre3 libpcre3-dev zlib1g zlib1g-dev libssl-dev -y
+sudo apt-get install libpcre3 libpcre3-dev zlib1g zlib1g-dev libssl-dev libgd-dev apache2-utils nghttp2-client siege -y
 
-sudo mkdir /etc/nginx/ssl
-
-./configure --sbin-path=/usr/bin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --with-pcre --pid-path=/var/run/nginx.pid --with-http_ssl_module --with-http_image_filter_module=dynamic --with-http_v2_module
+./configure --sbin-path=/usr/bin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --with-pcre --pid-path=/var/run/nginx.pid --with-http_ssl_module
 
 sudo make
 
 sudo make install
-
-sudo openssl req -x509 -days 10 -nodes -newkey rsa:2048 -keyout /etc/nginx/ssl/self.key -out /etc/nginx/ssl/self.crt
-
-sudo openssl dhparam -out /etc/nginx/ssl/dhparam.pem 2048
 
 ls -l /etc/nginx
 
 nginx -V
 
 cd
+
+rm -rf nginx
 
 git clone https://github.com/lalitnagpal/nginx.git
 
@@ -48,14 +44,32 @@ ps aux | grep nginx
 
 sudo apt-get install libgd-dev -y
 
-sudo apt-get install apache2-utils -y
+# SSL Configuration
 
-sudo apt-get install nghttp2-client -y 
+cd
 
-sudo apt-get install siege -y 
+sudo mkdir /etc/nginx/ssl
 
+cd nginx-1.19.6/
 
+./configure --sbin-path=/usr/bin/nginx --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --with-pcre --pid-path=/var/run/nginx.pid --with-http_ssl_module --with-http_image_filter_module=dynamic --with-http_v2_module
 
+sudo make
 
+sudo make install
 
+cd
 
+# Run Manually from here - TBD
+
+sudo openssl req -x509 -days 10 -nodes -newkey rsa:2048 -keyout /etc/nginx/ssl/self.key -out /etc/nginx/ssl/self.crt
+
+sudo openssl dhparam -out /etc/nginx/ssl/dhparam.pem 2048
+
+ls -l /etc/nginx
+
+nginx -V
+
+sudo systemctl reload nginx
+
+ps aux | grep nginx
