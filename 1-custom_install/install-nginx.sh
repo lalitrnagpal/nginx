@@ -42,11 +42,11 @@ ps aux | grep nginx
 
 sudo apt-get install libgd-dev -y
 
-sudo apt-get install apache2-utils
+sudo apt-get install apache2-utils -y
 
-sudo apt-get install nghttp2-client
+sudo apt-get install nghttp2-client -y 
 
-sudo apt-get install seige
+sudo apt-get install seige -y 
 
 
 
