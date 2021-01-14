@@ -24,6 +24,8 @@ ls -l /etc/nginx
 
 nginx -V
 
+cd
+
 git clone https://github.com/lalitnagpal/nginx.git
 
 sudo mv nginx/2-custom-conf-home-page /
