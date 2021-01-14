@@ -46,7 +46,7 @@ sudo apt-get install apache2-utils -y
 
 sudo apt-get install nghttp2-client -y 
 
-sudo apt-get install seige -y 
+sudo apt-get install siege -y 
 
 
 
