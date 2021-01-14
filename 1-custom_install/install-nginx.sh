@@ -26,6 +26,8 @@ nginx -V
 
 ps aux | grep nginx
 
+sudo apt-get install libgd-dev
+
 # sudo nginx
 
 # ps aux | grep nginx
