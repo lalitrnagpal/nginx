@@ -14,7 +14,7 @@ sudo apt-get install build-essential -y
 
 sudo apt-get install libpcre3 libpcre3-dev zlib1g zlib1g-dev libssl-dev -y
 
-sudo mkdir /etc/nginx/ss
+sudo mkdir /etc/nginx/ssl
 
 sudo openssl req -x509 -days 10 -nodes -newkey rsa:2048 -keyout /etc/nginx/ss
 
