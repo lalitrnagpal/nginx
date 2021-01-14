@@ -24,11 +24,21 @@ ls -l /etc/nginx
 
 nginx -V
 
+git clone https://github.com/lalitnagpal/nginx.git
+
+sudo mv nginx/2-custom-conf-home-page /
+
+sudo mv nginx/1-custom_install/nginx.service /lib/systemd/system
+
+sudo systemctl enable nginx
+
+sudo systemctl stop nginx
+
+sudo systemctl start nginx
+
 ps aux | grep nginx
 
 sudo apt-get install libgd-dev -y
 
-# sudo nginx
 
-# ps aux | grep nginx
 
