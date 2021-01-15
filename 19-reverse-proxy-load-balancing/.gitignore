@@ -32,3 +32,6 @@ build/
 .vscode/
 
 **/*.class
+
+.mvn
+mvnw*
