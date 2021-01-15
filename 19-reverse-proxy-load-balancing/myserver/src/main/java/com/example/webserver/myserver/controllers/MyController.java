@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MyController {
 	
-	public String serverName = "Server-" + Math.random() * 10;
+	public String serverName = "Server-" + Math.abs(Math.random() * 1000);
 	
 	@GetMapping("/hello")
 	public String sayHello(HttpServletRequest request, HttpServletResponse response) {
