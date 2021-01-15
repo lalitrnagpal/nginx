@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MyController {
 	
+	public String serverName = "Server-" + Math.random() * 10;
+	
 	@GetMapping("/hello")
 	public String sayHello(HttpServletRequest request, HttpServletResponse response) {
 		
@@ -22,7 +24,7 @@ public class MyController {
 		List<String> headers = Arrays.asList(headerNames.toString().split(",")).stream().filter(name -> name.trim().length() > 0 ).map( name -> name + ": " + request.getHeader(name) ).collect( Collectors.toList() );
 		
 		response.setHeader("myheader", "myvalue");
-		return "Hello from Spring Boot! You requested for " + headers.toString();
+		return "Hello from Spring Boot! Server: " + serverName;
 	}
 
 }
